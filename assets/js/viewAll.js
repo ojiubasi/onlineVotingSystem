@@ -7,39 +7,38 @@ $(document).ready(function () {
             var candidateData = "";
             $.each(data, function (key, value) {
                 
-                candidateData += "<tr>"
-                candidateData +="<td>"+ value.candidateId+ "</td>"
-                candidateData +="<td>"+ value.firstName+ " "+value.lastName+ "</td>"
-                candidateData +="<td>"+ value.office+"</td>"
-                candidateData +="<td>"+ value.politicalParty+"</td>"
-                candidateData +="<td>"+ '<button id="delete"> Delete </button><button id="update">Update</button>'+"</td>"                    
-                candidateData +="</tr>"
+                candidateData += `<tr>`
+                candidateData +=`<td>`+ value.candidateId+ `</td>`
+                candidateData +=`<td>`+ value.firstName+ " "+value.lastName+ `</td>`
+                candidateData +=`<td>`+ value.office+`</td>`
+                candidateData +=`<td>`+ value.politicalParty+`</td>`
+                candidateData +=`<td>`+ `<a href=${JSON.stringify(value)} type = "button" id = "delete"> Delete </a>`+
+                                        `<a href=${JSON.stringify(value)} type = "button" id = "viewSingle"> View </a>`+`</td>`                    
+                candidateData +=`</tr>`
 
-                $("#delete").click(function(e){
-                    e.preventDefault();
-                    $.ajax({
-                        method: "DELETE",
-                        url: `http://localhost:3000/candidates/${value.id}`,
-                        
-                    }).done(function(){
-                        alert("record deleted")
-                        window.location.assign("")
-                    }).fail(function(){
-                        alert("failed")
-                    })
-                })
-
-                $("#update").click(function(d){
-                    d.preventDefault();
-                    $.ajax({
-                        method: "PUT",
-                        url:    `http://localhost:3000/candidates/${value.id}`
-                    }).done(function(){
-                        window.location.assign("")
-                    })
-                })
             })
             $("#candidatesDataTable").append(candidateData)
+            //code to delete a candidate's record from server starts here
+            $(document).on("click", "#delete", function(e){
+                e.preventDefault();
+                var url = $(this).attr("href");
+                $.ajax({
+                    method: "DELETE",
+                    url: url
+                }).done(function(){
+                    alert("record deleted")
+                    window.location.assign("")
+                }).fail(function(){
+                    alert("failed")
+                })
+            })
+            //code to view a specific candidate's profile starts here
+            $(document).on("click", "#viewSingle", function(e){
+                e.preventDefault();
+                var url = $(this).attr("href");
+                localStorage.setItem("viewSingle", url);
+                window.location.replace("file:///C:/onlineVoting/candidateProfile.html");
+            })
         })
         .fail(function () {
             alert("server not responding")
