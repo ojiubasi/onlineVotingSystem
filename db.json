@@ -34,6 +34,16 @@
       "politicalParty": "AD",
       "description": "good",
       "id": 1
+    },
+    {
+      "candidateId": "556",
+      "firstName": "abah",
+      "lastName": "joe",
+      "office": "governor",
+      "email": "abahjoe@yahoo.com",
+      "politicalParty": "AD",
+      "description": "i am your best bet",
+      "id": 2
     }
   ]
 }
