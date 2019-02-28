@@ -6,33 +6,36 @@ $(document).ready(function () {
         .done(function (data) {
             var candidateData = "";
             $.each(data, function (key, value) {
-                var deleteBtn = $(`<a href = http://localhost:3000/candidates/${info.id} type = "button" id = "delete"> Delete </a>`)
-                var updateBtn = $(`<a href = http://localhost:3000/candidates/${info.id} type = "button" id = "update"> Update </a>`)
+                
                 candidateData += "<tr>"
                 candidateData +="<td>"+ value.candidateId+ "</td>"
                 candidateData +="<td>"+ value.firstName+ " "+value.lastName+ "</td>"
                 candidateData +="<td>"+ value.office+"</td>"
                 candidateData +="<td>"+ value.politicalParty+"</td>"
-                candidateData +="<td>" +deleteBtn+updateBtn+"</td>"                    
+                candidateData +="<td>"+ '<button id="delete"> Delete </button><button id="update">Update</button>'+"</td>"                    
                 candidateData +="</tr>"
-                
-                $(deleteBtn).click(function(e){
-                    var url = $(this).attr("href");
+
+                $("#delete").click(function(e){
+                    e.preventDefault();
                     $.ajax({
                         method: "DELETE",
-                        url: url,
-                        success: function(){
-                            alert("candidate deleted successfully")
-                        }
+                        url: `http://localhost:3000/candidates/${value.id}`,
+                        
+                    }).done(function(){
+                        alert("record deleted")
+                        window.location.assign("")
+                    }).fail(function(){
+                        alert("failed")
                     })
                 })
 
-                $(updateBtn).click(function(){
-                    var url = $(this).attr("href");
+                $("#update").click(function(d){
+                    d.preventDefault();
                     $.ajax({
                         method: "PUT",
-                        url:    url,
-                        success:
+                        url:    `http://localhost:3000/candidates/${value.id}`
+                    }).done(function(){
+                        window.location.assign("")
                     })
                 })
             })
