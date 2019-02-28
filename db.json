@@ -1,0 +1,39 @@
+{
+  "voters": [
+    {
+      "VIN": "507",
+      "firstName": "fg",
+      "lastName": "fggf",
+      "otherName": "df",
+      "phone": "34",
+      "email": "sd@g",
+      "state": "tr",
+      "id": 1
+    },
+    {
+      "VIN": "226",
+      "firstName": "dssdd",
+      "lastName": "dssdd",
+      "otherName": "dsds",
+      "phone": "32",
+      "email": "sd@f",
+      "state": "df",
+      "id": 2
+    },
+    {
+      "id": 3
+    }
+  ],
+  "candidates": [
+    {
+      "candidateId": "241",
+      "firstName": "don",
+      "lastName": "joe",
+      "office": "vice-president",
+      "email": "donjoe@gmail.com",
+      "politicalParty": "AD",
+      "description": "good",
+      "id": 1
+    }
+  ]
+}
