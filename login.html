@@ -1,0 +1,72 @@
+ <!DOCTYPE html>
+<html lang="en">
+			
+	<head>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="assets/js/logIn.js"></script>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width'initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>POLITICO | POLITICIAN</title>
+		<link rel='stylesheet' href='./assets/css/styles.css'>
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+	</head>
+	
+	<body>
+
+		<!-- HEADER SECTION BEGINS HERE-->
+		<header>
+			
+			<div class='container'>
+				<div id='index-logo'>
+						<h1><i>crypto</i>POLL</h1>
+				</div>
+				<nav>
+					<ul>
+						<li><a href='index.html'>HOME</a></li>
+						<li class='current'><a href='login.html'>LOGIN</a></li>
+						<li><a href='signup.html'>SIGN UP</a></li>
+						<li><a href='politician.html'>POLITICIAN</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+		<!-- HEADER SECTION ENDS HERE -->
+
+		<!-- MAIN STARTS HERE-->
+		<main>
+			<!-- SECTION STARTS HERE-->
+			<section>
+				<div class='container'>
+					<h3>USER SIGN IN</h3>
+						<form id="loginform">
+
+						 	<div class='img-container'>
+						 		<img src="./assets/img/img_avatar1.png" alt="Avatar" class="avatar">
+						 	</div>
+
+							<label>Voters Identification Number</label><input type="number" id="vin" name="vin" required>
+
+		        			<label for="password">Password</label>
+		       		 		<input type="number" id="phone" name="text" placeholder="Enter Phone" required>
+		       		 	
+		       		 		<span class='light-weight'><a href='reset.html'>Forgot password?</a></span>
+
+		       		 		<button type="submit" id="login" >LOG IN</button>
+		       		 		<button type="submit" name="login" class='admin'>LOG IN AS ADMIN</button>
+		       		 		<hr>
+		       		 		<span class='light-weight'>Don't have an account?<a href="signup.html"> Sign up</a>
+		     			</form>
+		     	</div>
+			</section>
+			<!-- SECTION ENDS HERE-->
+		</main>
+		<!-- MAIN ENDS HERE-->
+
+		<footer>
+			<p>Politico | Copyright &copy; 2019</p>
+		</footer>
+
+	</body>
+</html>
