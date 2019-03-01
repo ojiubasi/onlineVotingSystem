@@ -10,7 +10,7 @@ $(document).ready(function () {
             url:    `http://localhost:3000/voters?VIN=${vin}&phone=${password}`,
               
         }).done(function(){
-            window.location.assign("file:///C:/onlineVoting/profile%20view.html");
+            window.location.assign("file:///C:/onlineVoting/user-dashboard.html");
         }).fail(function(){
             alert("you entered an invalid vin and/or password");
         })
