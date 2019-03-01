@@ -22,27 +22,30 @@
     },
     {
       "id": 3
+    },
+    {
+      "id": 4
     }
   ],
   "candidates": [
     {
-      "candidateId": "241",
+      "candidateId": "136",
       "firstName": "don",
-      "lastName": "joe",
-      "office": "vice-president",
+      "lastName": "john",
+      "office": "president",
       "email": "donjoe@gmail.com",
-      "politicalParty": "AD",
-      "description": "good",
+      "politicalParty": "PPR",
+      "description": "",
       "id": 1
     },
     {
-      "candidateId": "556",
-      "firstName": "abah",
-      "lastName": "joe",
-      "office": "governor",
-      "email": "abahjoe@yahoo.com",
-      "politicalParty": "AD",
-      "description": "i am your best bet",
+      "candidateId": "190",
+      "firstName": "don",
+      "lastName": "dan",
+      "office": "president",
+      "email": "donjoe@gmail.com",
+      "politicalParty": "PPR",
+      "description": "f",
       "id": 2
     }
   ]

@@ -23,7 +23,7 @@ $(document).ready(function () {
             data: candidatesData
         })
             .done(function (data) {
-                alert("voter registered successfully!")
+                alert("candidate registered successfully!")
                 window.location.assign("");
             }).fail(function () {
                 alert("couldn't reach server")

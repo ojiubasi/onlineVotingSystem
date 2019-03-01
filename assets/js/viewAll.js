@@ -6,37 +6,41 @@ $(document).ready(function () {
         .done(function (data) {
             var candidateData = "";
             $.each(data, function (key, value) {
-                var deleteBtn = $(`<a href = http://localhost:3000/candidates/${info.id} type = "button" id = "delete"> Delete </a>`)
-                var updateBtn = $(`<a href = http://localhost:3000/candidates/${info.id} type = "button" id = "update"> Update </a>`)
-                candidateData += "<tr>"
-                candidateData +="<td>"+ value.candidateId+ "</td>"
-                candidateData +="<td>"+ value.firstName+ " "+value.lastName+ "</td>"
-                candidateData +="<td>"+ value.office+"</td>"
-                candidateData +="<td>"+ value.politicalParty+"</td>"
-                candidateData +="<td>" +deleteBtn+updateBtn+"</td>"                    
-                candidateData +="</tr>"
                 
-                $(deleteBtn).click(function(e){
+                candidateData += `<tr>`
+                candidateData +=`<td>`+ value.candidateId+ `</td>`
+                candidateData +=`<td>`+ value.firstName+ " "+value.lastName+ `</td>`
+                candidateData +=`<td>`+ value.office+`</td>`
+                candidateData +=`<td>`+ value.politicalParty+`</td>`
+                candidateData +=`<td>`+ `<a href="http://localhost:3000/candidates/${value.candidateId}" type = "button" class = "delete"> Delete </a>`+
+                                        `<a href="http://localhost:3000/candidates/${value.candidateId}" type = "button" id = "viewSingle"> View </a>`+`</td>`                    
+                candidateData +=`</tr>`
+
+                //code to delete a candidate's record from server starts here
+                $(document).on("click", ".delete", function(e){
+                    e.preventDefault();
                     var url = $(this).attr("href");
                     $.ajax({
                         method: "DELETE",
-                        url: url,
-                        success: function(){
-                            alert("candidate deleted successfully")
-                        }
+                        url: url
+                    }).done(function(){
+                        alert("record deleted")
+                        window.location.assign("file:///C:/onlineVoting/viewAllCandidates.html")
+                    }).fail(function(){
+                        alert("failed")
                     })
-                })
-
-                $(updateBtn).click(function(){
-                    var url = $(this).attr("href");
-                    $.ajax({
-                        method: "PUT",
-                        url:    url,
-                        success:
-                    })
-                })
+                  })
             })
             $("#candidatesDataTable").append(candidateData)
+            
+            
+            //code to view a specific candidate's profile starts here
+            $(document).on("click", "#viewSingle", function(e){
+                e.preventDefault();
+                var url = $(this).attr("href");
+                localStorage.setItem("viewSingle", url);
+                window.location.assign("file:///C:/onlineVoting/candidateProfile.html");
+            })
         })
         .fail(function () {
             alert("server not responding")
